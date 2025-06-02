@@ -1,0 +1,17 @@
+const CHUNK_PUBLIC_PATH = "server/app/[locale]/devices/page.js";
+const runtime = require("../../../chunks/ssr/[turbopack]_runtime.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_20decf41._.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__292a8cba._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_96715ba7._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_forbidden-error_ea7ea172.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_unauthorized-error_c8949b27.js");
+runtime.loadChunk("server/chunks/ssr/src_app_global-error_tsx_d6ef94b5._.js");
+runtime.loadChunk("server/chunks/ssr/src_locales_3dc69317._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_1aaf2150._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_@clerk_localizations_dist_index_mjs_4da605b8._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_ad8fab2f._.js");
+runtime.loadChunk("server/chunks/ssr/src_e4b9bf7c._.js");
+runtime.loadChunk("server/chunks/ssr/_791ba70a._.js");
+runtime.getOrInstantiateRuntimeModule("[project]/.next-internal/server/app/[locale]/devices/page/actions.js [app-rsc] (server actions loader, ecmascript)", CHUNK_PUBLIC_PATH);
+runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/[locale]/devices/page { GLOBAL_ERROR_MODULE => \"[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_0 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/src/app/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_5 => \"[project]/src/app/[locale]/devices/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
+module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/[locale]/devices/page { GLOBAL_ERROR_MODULE => \"[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_0 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_1 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/src/app/global-error.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/src/app/[locale]/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_5 => \"[project]/src/app/[locale]/devices/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;
