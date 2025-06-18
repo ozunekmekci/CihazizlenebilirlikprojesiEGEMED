@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, QrCode } from 'lucide-react';
+import { X, QrCode, ArrowUpRight } from 'lucide-react';
 import QRCodePreview from './QRCodePreview';
 
 interface DeviceDetailModalProps {
@@ -53,12 +53,13 @@ export default function DeviceDetailModal({ open, onClose, device, onEdit }: Dev
                 </div>
                 <QRCodePreview url={device.qrUrl} size={100} />
                 <a
-                  href={device.qrUrl}
+                  href={`/devices/${device.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 underline text-xs mt-1"
+                  className="flex items-center gap-1 text-blue-600 dark:text-blue-400 underline text-xs mt-1 font-semibold hover:text-blue-800 transition"
                 >
-                  Cihaz Sayfasını Aç
+                  <ArrowUpRight size={16} className="inline-block -mt-0.5" />
+                  Cihaz Detay
                 </a>
               </div>
               <div className="flex-1 flex flex-col gap-2">

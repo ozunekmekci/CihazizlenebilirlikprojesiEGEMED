@@ -1,0 +1,85 @@
+Salt okunur cihaz detay sayfası kesinlikle sadece gösterim amaçlı kalacak. Tüm veri girişi ve düzenleme işlemleri, teknikerin eriştiği arayüzler (örneğin, cihaz listesindeki "İşlemler" menüsü üzerinden açılan modallar) aracılığıyla yapılacak. Bu modallarda girilen veriler, salt okunur sayfada otomatik olarak yansıyacak.
+Fikir 1 Üzerinden Detaylı Planlama (Genişletilmiş "İşlemler" Menüsü)
+Bu senaryoda, "Cihazlar" listesindeki her bir cihaz için "İşlemler" dropdown menüsü, cihazla ilgili farklı türde veri eklemek veya mevcut ana bilgileri düzenlemek için birincil erişim noktası olacak.
+1. "İşlemler" Dropdown Menüsü ve Açılacak Modallar:
+Görüntüle: Tıklandığında, site.com/devices/{cihazId} gibi bir URL'ye yönlendirir ve tamamen salt okunur, hiçbir düzenleme veya veri giriş alanı olmayan cihaz detay sayfasını gösterir.
+Düzenle (Ana Bilgiler):
+Açılacak Modal: "Cihaz Ana Bilgilerini Düzenle" modalı.
+İçerik: Cihaz Adı, Marka, Model, Seri No, Bulunduğu Bölüm (Departman), Kategori, Hastane Envanter No, Cihaz Görseli, Genel Notlar.
+Amaç: Cihazın temel tanımlayıcı bilgilerini güncellemek.
+Garanti Bilgisi Ekle/Düzenle:
+Açılacak Modal: "Garanti Bilgileri" modalı.
+İçerik: Satın Alma Tarihi, Garanti Başlangıç Tarihi, Garanti Bitiş Tarihi, Tedarikçi Firma Bilgisi, Garanti Belgesi Yükleme.
+Amaç: Cihazın garanti süreçlerini yönetmek.
+Arıza Kaydı Ekle:
+Açılacak Modal: "Yeni Arıza Kaydı" modalı.
+İçerik: Arıza Bildirim Tarihi, Bildiren Kişi, Arıza Açıklaması, Arıza Durumu (örn: "Bildirildi", "İnceleniyor").
+Amaç: Cihazda oluşan arızaları kaydetmek ve takip etmek.
+Bakım Kaydı Ekle:
+Açılacak Modal: "Yeni Bakım Kaydı" modalı.
+İçerik: Bakım Tarihi, Bakımı Yapan Kişi/Firma, Yapılan İşlemler (detaylı açıklama), Kullanılan Parçalar, Bir Sonraki Planlı Bakım Tarihi.
+Amaç: Yapılan periyodik veya arızi bakımları kaydetmek.
+Kalibrasyon Kaydı Ekle:
+Açılacak Modal: "Yeni Kalibrasyon Kaydı" modalı.
+İçerik: Kalibrasyon Tarihi, Kalibrasyonu Yapan Kişi/Firma, Kalibrasyon Sonuçları, Kalibrasyon Sertifikası Yükleme, Bir Sonraki Planlı Kalibrasyon Tarihi.
+Amaç: Yapılan kalibrasyonları ve sonuçlarını kaydetmek.
+Döküman Ekle/Yönet:
+Açılacak Modal: "Döküman Yönetimi" modalı.
+İçerik: Döküman Tipi (Kullanım Kılavuzu, Teknik Şartname vb.), Döküman Yükleme, Açıklama. Mevcut dökümanları listeleme, silme.
+Amaç: Cihazla ilgili tüm dökümanları merkezi bir yerde tutmak.
+Sil:
+Açılacak Modal: "Cihazı Sil Onayı" modalı.
+Amaç: Cihazı sistemden (belki arşivleyerek) kaldırmak.
+2. Verilerin Salt Okunur Cihaz Detay Sayfasına Entegrasyonu:
+Bu, sistemin kalbidir.
+Tek Yönlü Veri Akışı: Tekniker, yukarıdaki modallar aracılığıyla veri girdiğinde veya güncellediğinde, bu değişiklikler doğrudan veritabanına yazılır.
+Salt Okunur Sayfanın Veri Çekmesi:
+Bir kullanıcı (herhangi bir rol) salt okunur cihaz detay sayfasını (site.com/devices/{cihazId}) ziyaret ettiğinde, bu sayfanın frontend kodu, backend'e ilgili cihazId için tüm verileri getirmesi yönünde bir istek yapar.
+Backend, veritabanından şunları toplar:
+Cihazın ana bilgileri (Devices tablosundan).
+Cihazın garanti bilgileri (belki Devices tablosunda veya ayrı bir Warranties tablosunda).
+Cihazla ilişkili tüm arıza kayıtları (FaultLogs tablosundan, device_id ile eşleşenler, tarihe göre sıralı).
+Cihazla ilişkili tüm bakım kayıtları (MaintenanceLogs tablosundan).
+Cihazla ilişkili tüm kalibrasyon kayıtları (CalibrationLogs tablosundan).
+Cihazla ilişkili tüm dökümanlar (Documents tablosundan).
+Backend, bu toplanan verileri yapılandırılmış bir JSON formatında (örn: ana bilgiler, ve her bir log türü için bir array) frontend'e gönderir.
+Dinamik Gösterim: Salt okunur sayfanın frontend kodu (React, Vue, Angular vb.), bu JSON verisini alır ve sayfadaki ilgili bölümleri (Temel Bilgiler, Bakım Geçmişi sekmesi, Arıza Geçmişi sekmesi, Dökümanlar sekmesi vb.) bu verilerle doldurur. Hiçbir "input" alanı olmaz, sadece metin, linkler ve belki indirilebilir dosya ikonları olur.
+Teknolojik Yapı ve İşleyiş Detayları:
+Frontend (Tekniker Arayüzü - Cihaz Listesi ve Modallar):
+React, Vue veya Angular gibi bir SPA (Single Page Application) çerçevesi idealdir.
+Her bir "Ekle/Düzenle" aksiyonu için ayrı, odaklanmış modal bileşenleri oluşturulur.
+Form yönetimi (React Hook Form, Formik vb.) ve validasyon (Yup, Zod vb.) kullanılır.
+State yönetimi (Zustand, Redux Toolkit, Pinia) ile modal durumları ve form verileri yönetilir.
+API istekleri (Axios) ile backend'e veri gönderilir.
+Backend (API):
+RESTful API prensiplerine uygun endpoint'ler tasarlanır:
+POST /api/devices/{deviceId}/fault-logs (Yeni arıza kaydı ekle)
+POST /api/devices/{deviceId}/maintenance-logs (Yeni bakım kaydı ekle)
+PUT /api/devices/{deviceId}/warranty (Garanti bilgisi güncelle)
+PUT /api/devices/{deviceId} (Ana cihaz bilgileri güncelle)
+GET /api/devices/{deviceId}/detailed-view (Salt okunur sayfa için tüm veriyi getiren özel endpoint)
+Her endpoint, ilgili servisi çağırarak veritabanı işlemlerini (veri ekleme, güncelleme) yapar.
+Dosya yüklemeleri (görseller, PDF'ler) için multipart/form-data işleme ve dosyaların güvenli bir şekilde saklanması (sunucuda bir klasör veya bulut depolama - S3, Azure Blob) sağlanır.
+Veritabanı:
+Daha önce bahsettiğimiz gibi, ilişkisel bir veritabanı (PostgreSQL, MySQL) bu yapı için çok uygun.
+Devices ana tablosu ve bu tabloyla device_id üzerinden bire-çok ilişkili MaintenanceLogs, CalibrationLogs, FaultLogs, Documents gibi tablolar.
+Garanti bilgileri Devices tablosunda tutulabilir veya daha karmaşıksa ayrı bir Warranties tablosu olabilir.
+Frontend (Salt Okunur Detay Sayfası):
+Bu sayfa, yukarıda bahsedilen GET /api/devices/{deviceId}/detailed-view endpoint'inden aldığı veriyi gösterir.
+Sunucu Tarafı Oluşturma (SSR - Next.js, Nuxt.js) veya İstemci Tarafı Oluşturma (CSR - create-react-app, Vue CLI) kullanılabilir. QR kod okutulduğunda hızlı yüklenmesi için SSR veya SSG (Static Site Generation) avantajlı olabilir.
+Veri, sadece <div>, <span>, <p>, <a> gibi HTML elemanları kullanılarak, listeler ve tablolar halinde gösterilir. Kesinlikle <input>, <textarea>, <select> gibi form elemanları içermez.
+Örnek Kullanıcı Akışı (Tekniker için Bakım Kaydı Ekleme):
+Tekniker, "Cihazlar" listesi sayfasını açar.
+İlgili cihazın satırındaki "İşlemler" dropdown menüsüne tıklar.
+"Bakım Kaydı Ekle" seçeneğine tıklar.
+"Yeni Bakım Kaydı" modalı açılır.
+Tekniker, bakım tarihi, yapan kişi, yapılan işlemler vb. bilgileri forma girer ve "Kaydet" butonuna tıklar.
+Modal'daki frontend kodu, form verilerini toplar ve POST /api/devices/{deviceId}/maintenance-logs endpoint'ine gönderir.
+Backend, isteği alır, veriyi doğrular ve MaintenanceLogs tablosuna yeni bir kayıt ekler. Başarılı yanıt döner.
+Modal kapanır, belki bir başarı mesajı gösterilir.
+Örnek Kullanıcı Akışı (Herhangi bir Kullanıcı için Detay Görüntüleme):
+Kullanıcı, bir QR kodu okutarak veya bir linke tıklayarak site.com/devices/123 adresine gider.
+Salt okunur detay sayfasının frontend'i, backend'e GET /api/devices/123/detailed-view isteği gönderir.
+Backend, 123 ID'li cihazın tüm ana bilgilerini ve ilişkili tüm log kayıtlarını (bakım, arıza, kalibrasyon, dökümanlar) veritabanından çeker ve JSON olarak gönderir.
+Salt okunur sayfanın frontend'i bu JSON verisini alır ve ilgili sekmeleri/bölümleri bu verilerle doldurarak kullanıcıya gösterir. Kullanıcı, az önce teknikerin eklediği bakım kaydını da "Bakım Geçmişi" bölümünde görür.
+Bu plan, "salt okunur" prensibini korurken, teknikerlerin farklı veri türlerini yönetebilmesi için modüler ve odaklanmış arayüzler sunar. Anahtar nokta, backend'in salt okunur sayfa için tüm gerekli veriyi tek bir kapsamlı endpoint üzerinden sağlayabilmesi ve frontend'in bu veriyi sadece gösterim amaçlı kullanmasıdır.

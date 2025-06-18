@@ -1,0 +1,171 @@
+Salt okunur cihaz detay sayfasında gösterilen tüm dinamik verilerin (durum, konum, bakım tarihleri, dökümanlar vb.) yönetilebileceği, yetkili kullanıcıların erişebileceği kapsamlı bir Arka Plan Admin Yönetim Paneli şart. Bu panel, projenizin beyni ve operasyon merkezi olacaktır.
+
+İşte bu yönetim panelinin yapısı, tasarımı ve inovatif özellikleri için fikirlerim:
+
+🚀 Arka Plan Admin Yönetim Paneli: İnovatif Fikirler
+
+Panel, hem güçlü işlevsellik sunmalı hem de Apple/Notion/Linear esintili, kullanıcı dostu ve modern bir deneyim sağlamalı.
+
+Temel Yapı ve Navigasyon (Django Admin'den İlham Alarak Daha Modern):
+
+Ana Dashboard:
+
+Genel bakış: Toplam cihaz sayısı, aktif cihazlar, bakımdaki cihazlar, arızalı cihazlar, yaklaşan bakımlar/kalibrasyonlar.
+
+Hızlı erişim kartları: "Yeni Cihaz Ekle", "Toplu Veri İçe Aktar", "Kullanıcı Yönetimi".
+
+Son aktivite akışı (opsiyonel, kim ne yapmış).
+
+Sidebar Navigasyon (Genişletilebilir/Daraltılabilir):
+
+Cihaz Yönetimi:
+
+Cihaz Listesi (Filtrelenebilir, sıralanabilir, özelleştirilebilir sütunlar)
+
+Yeni Cihaz Ekle
+
+Kategoriler/Tipler Yönetimi
+
+Markalar/Modeller Yönetimi
+
+Departmanlar/Konumlar Yönetimi
+
+Bakım ve Kalibrasyon:
+
+Bakım Takvimi (Görsel takvim görünümü)
+
+Planlanmış Bakımlar
+
+Yapılan Bakımlar ve Raporları
+
+Kalibrasyon Kayıtları
+
+Döküman Yönetimi:
+
+Tüm Dökümanlar Listesi
+
+Yeni Döküman Yükle (Cihazla ilişkilendirme)
+
+Kullanıcı Yönetimi:
+
+Kullanıcı Listesi
+
+Yeni Kullanıcı Ekle/Rol Atama
+
+Roller ve İzinler Yönetimi
+
+Audit Log (İz Kayıtları):
+
+Detaylı sistem genelindeki tüm değişikliklerin logları (filtrelenebilir).
+
+Raporlama ve İstatistikler: (Gelecek fazı için planlanabilir)
+
+Cihaz Kullanım Raporları
+
+Arıza Analiz Raporları
+
+Maliyet Raporları
+
+Ayarlar:
+
+Genel Sistem Ayarları (Hastane adı, logo vb.)
+
+Bildirim Ayarları
+
+Veri İçe/Dışa Aktarma
+
+Tasarım ve Kullanıcı Deneyimi (Apple/Notion/Linear Esintili):
+
+Minimalist ve Temiz Arayüz: Karmaşadan uzak, odaklanmış bir tasarım. Bol beyaz alan.
+
+Akıllı Tablolar:
+
+Filtreleme: Sütun bazlı ve gelişmiş filtreleme seçenekleri (örn: "Durumu 'Arızalı' olan ve 'Kardiyoloji' departmanındaki cihazlar").
+
+Sıralama: Tek tıkla sütun sıralama.
+
+Özelleştirilebilir Sütunlar: Kullanıcının tabloda hangi bilgileri görmek istediğini seçebilmesi (Notion'daki gibi).
+
+Satır İçi Düzenleme (Inline Editing): Bazı basit alanlar için (örn: cihaz durumu) direkt tablodan hızlı düzenleme.
+
+Toplu İşlemler: Birden fazla cihaz seçip toplu olarak durum güncelleme, departman atama gibi.
+
+Form Tasarımı:
+
+Apple Tarzı Form Elemanları: Net, anlaşılır ve estetik form alanları, switch'ler, dropdown'lar.
+
+Adım Adım Formlar (Wizards): Karmaşık işlemler için (örn: yeni cihaz ekleme) kullanıcıyı adım adım yönlendiren formlar.
+
+Dinamik Alanlar: Bir seçime göre beliren/kaybolan form alanları (örn: "Arızalı" seçilince "Arıza Açıklaması" alanı aktifleşir).
+
+Zengin Metin Editörleri: Cihaz açıklamaları, bakım notları gibi alanlar için (Notion'daki gibi basit ve güçlü).
+
+Komut Paleti (CMD+K / CTRL+K):
+
+Kullanıcıların hızlıca "Yeni Cihaz Ekle", "Kullanıcı Ara", "Ayarlar'a Git" gibi komutları yazarak veya arayarak erişebilmesi. Bu, navigasyonu hızlandırır ve profesyonel bir hava katar.
+
+Sürükle ve Bırak Arayüzleri:
+
+Döküman Yükleme: Dosyaları sürükleyip bırakarak yükleme.
+
+Cihaz Durum Panosu (Kanban Görünümü): Cihazları "Boşta", "Kullanımda", "Bakımda", "Arızalı" gibi sütunlar arasında sürükleyip bırakarak durumlarını güncelleme (Trello/Linear tarzı).
+
+Kişiselleştirilebilir Widget'lar (Dashboard):
+
+Yöneticilerin kendi dashboard'larında hangi bilgi kartlarını (widget) görmek istediklerini seçip düzenleyebilmeleri.
+
+Karanlık Mod (Dark Mode): Kullanıcı tercihlerine göre aydınlık ve karanlık tema seçenekleri.
+
+Bildirim Merkezi: Sistem içi önemli uyarılar, onay bekleyen işlemler veya yeni arıza bildirimleri için bir bildirim alanı.
+
+İnovatif Özellikler ve İş Akışları:
+
+Akıllı Varsayılanlar ve Şablonlar:
+
+Yeni cihaz eklerken, seçilen kategoriye göre (örn: "EKG Cihazı") bazı alanların (standart bakım periyodu, tipik dökümanlar) otomatik olarak önerilmesi veya doldurulması.
+
+Bakım türleri için şablonlar (örn: "Yıllık Periyodik Bakım" için standart kontrol listesi).
+
+Bağlamsal Bilgi ve Öneriler:
+
+Bir cihazın detayını düzenlerken, o cihazın geçmiş arıza kayıtlarına veya benzer modellerdeki yaygın sorunlara dair ipuçları/uyarılar gösterilmesi.
+
+Görsel Cihaz Yerleşimi (Opsiyonel, İleri Seviye):
+
+Eğer hastane kat planları mevcutsa, cihazların hangi odada olduğunu görsel bir harita üzerinde işaretleyebilme ve güncelleyebilme. (Çok büyük hastaneler için faydalı olabilir).
+
+Proaktif Uyarı Sistemi:
+
+"Bu cihazın garantisi 30 gün içinde bitiyor, yenileme veya yeni alım planlayın."
+
+"X model cihazlarda son 3 ayda Y arızası sıkça bildirildi, diğer X modellerini kontrol edin."
+
+"Z departmanındaki cihaz kullanım oranı çok düşük, başka bir departmana kaydırmayı düşünün."
+
+Entegre İletişim Araçları (Basit Seviyede):
+
+Bir cihazla ilgili bir sorun olduğunda, sistem üzerinden ilgili teknisyene veya departmana hızlı bir not/görev atama.
+
+Sürüm Kontrollü Döküman Yönetimi:
+
+Kullanım kılavuzları veya teknik şartnameler güncellendiğinde eski versiyonların da saklanması ve değişiklik geçmişinin görülebilmesi.
+
+API Yönetimi ve Entegrasyon Paneli:
+
+Gelecekte başka sistemlerle (HBYS, muhasebe vb.) entegrasyon düşünülüyorsa, API anahtarlarını yönetmek ve entegrasyon durumunu izlemek için bir bölüm.
+
+"Ne Yenilik Var?" (What's New) Bölümü:
+
+Sistem güncellendiğinde, yeni eklenen özellikleri veya yapılan iyileştirmeleri kullanıcılara duyuran bir bölüm (Linear'ın "Changelog" yaklaşımı gibi).
+
+Teknik Hususlar:
+
+Backend: Django Admin, bu işlevlerin birçoğu için harika bir temel sunar. Ancak, daha modern bir UI/UX için Django Admin arayüzünü özelleştirmek (örn: django-jazzmin gibi temalarla veya custom template'lerle) ya da tamamen ayrı bir SPA (Single Page Application - React/Vue/Next.js) olarak admin paneli geliştirmek ve Django REST API ile haberleştirmek gerekebilir. Apple/Notion/Linear esintisi için ikincisi daha esnek olabilir.
+
+Frontend: Eğer ayrı bir SPA olacaksa Next.js (mevcut frontend yapınızla uyumlu) veya React/Vue. Tailwind CSS, Shadcn UI/Radix UI gibi kütüphaneler bu modern görünümü elde etmede çok yardımcı olacaktır.
+
+Önceliklendirme:
+
+Bu özelliklerin hepsi birden geliştirilmeyebilir. En temel CRUD (Create, Read, Update, Delete) işlemleri ve cihaz yönetimi ile başlayıp, kullanıcı geri bildirimlerine göre diğer inovatif özellikleri aşamalı olarak ekleyebilirsiniz.
+
+Bu yönetim paneli, hastane personelinin cihazlarla ilgili tüm bilgilere hakim olmasını, süreçleri optimize etmesini ve sonuç olarak daha iyi hasta bakımı sunulmasına dolaylı yoldan katkıda bulunmasını sağlayacaktır. Başarılar!

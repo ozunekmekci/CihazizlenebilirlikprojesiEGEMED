@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'devices',
+    'qr_code_generator',
     'corsheaders',
 ]
 
@@ -123,6 +124,9 @@ STATIC_URL = 'static/'
 # Media dosyaları için ayarlar
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Frontend URL for QR code generation
+BASE_FRONTEND_URL = 'http://localhost:3000' # Prod ortamında https://cihazqr.com olarak güncellenmeli
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

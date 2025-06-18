@@ -1,0 +1,79 @@
+Salt okunur cihaz detay sayfası, QR kod okutulduğunda ilk temas noktası olacağı için kullanıcı dostu, bilgilendirici ve hızlı olması kritik önem taşır. Amacımız, personelin ihtiyaç duyduğu bilgiye anında ulaşmasını sağlamak ve cihazın izlenebilirliğine katkıda bulunmak.
+🧂 Salt Okunur Cihaz Detay Sayfası (QR Okutulduğunda Gidilen Sayfa)
+Bu sayfa, mobil öncelikli (mobile-first) tasarlanmalı ve gereksiz karmaşadan uzak olmalıdır.
+Sayfa Yapısı ve İçeriği:
+1. Üst Kısım (Hemen Görünen Alan):
+* Cihaz Görseli: Yüksek kaliteli, net bir cihaz fotoğrafı.
+* Cihaz Adı: Büyük ve okunaklı puntolarla (Örn: "EKG Cihazı - Model X").
+* Marka / Model: Cihaz adı altında veya yanında (Örn: "GE Healthcare / MAC 2000").
+* Benzersiz Tanımlayıcı (ID/Seri No): Kolayca görülebilir bir yerde (Örn: "Seri No: SN12345678").
+* Mevcut Durum: Renk kodlu ve net bir ifadeyle (Örn:
+* Yeşil: KULLANIMA HAZIR
+* Sarı: KULLANIMDA (Dr. Ayşe Yılmaz / Yoğun Bakım Ünitesi)
+* Turuncu: BAKIMDA (Teknisyen Ali Veli / Bitiş Tarihi: 25.12.2023)
+* Kırmızı: ARIZALI (Arıza Açıklaması: Ekran Görüntü Vermiyor)
+* Mavi: KALİBRASYON GEREKLİ (Son Kalibrasyon: 01.06.2023)
+* Konum: Cihazın kayıtlı olduğu departman/oda (Örn: "Kardiyoloji Servisi, Oda 305").
+2. Temel Bilgiler Sekmesi/Bölümü (Varsayılan Açık):
+* QR Kod Bilgisi: Okutulan QR kodun kendisi (tekrar okutma veya paylaşma için).
+* Hastane Envanter No: Kuruma özel takip numarası.
+* Kategori/Cihaz Tipi: (Örn: "Görüntüleme Cihazı", "Yaşam Destek Ünitesi").
+* Sorumlu Departman: Cihazın ait olduğu ana departman.
+* Satın Alma Tarihi:
+* Garanti Bitiş Tarihi: (Eğer hala garantiliyse belirgin bir şekilde).
+* Tedarikçi Firma Bilgisi: (İsim, belki iletişim numarası).
+3. Bakım ve Kalibrasyon Sekmesi/Bölümü:
+* Son Bakım Tarihi:
+* Son Bakımı Yapan Kişi/Firma:
+* Bir Sonraki Planlı Bakım Tarihi:
+* Son Kalibrasyon Tarihi:
+* Bir Sonraki Kalibrasyon Tarihi:
+* Bakım Notları (Özet): En son yapılan önemli işlemlerin kısa özeti.
+4. Dökümanlar ve Kılavuzlar Sekmesi/Bölümü:
+* Kullanım Kılavuzu (PDF Linki): Tek tıkla açılabilir/indirilebilir.
+* Hızlı Başlangıç Rehberi (PDF Linki):
+* Teknik Şartname (PDF Linki):
+* Bakım Talimatları (PDF Linki):
+* Diğer Önemli Dökümanlar: (Sertifikalar vb.)
+5. Hareket Geçmişi (Audit Log) Sekmesi/Bölümü (İzlenebilirlik için Kritik):
+* Tarih & Saat | İşlem | Yapan Kişi | Detay/Not formatında bir liste.
+* Örnek Kayıtlar:
+* 24.12.2023 10:15 | Durum Güncellendi | Otomatik Sistem | Kullanıma Hazır
+* 24.12.2023 11:30 | Cihaz Alındı | Hemşire Zeynep Kaya | Yoğun Bakım Ünitesi için alındı.
+* 23.12.2023 09:00 | Bakım Yapıldı | Teknisyen Mehmet Can | Periyodik filtre değişimi yapıldı.
+* 22.12.2023 14:00 | Arıza Bildirildi | Dr. Elif Su | Cihaz açılmıyor.
+* Bu bölüm, cihazın kim tarafından, ne zaman, nerede ve ne amaçla kullanıldığını gösterir.
+6. Hızlı Aksiyon Önerileri (Doğrudan işlem değil, yönlendirme):
+* "Sorun Bildir" (Link/Bilgi: Teknik servise nasıl ulaşılacağı veya arıza bildirim formuna yönlendirme)
+* "Bakım Talep Et" (Link/Bilgi)
+* "Sorumlu Personeli Ara" (Eğer atanmış bir sorumlu varsa iletişim bilgisi veya dahili no)
+Apple/Notion/Linear Esintili Tasarım İpuçları:
+Bol Beyaz Alan: Ferah ve göz yormayan bir görünüm.
+Net Tipografi: Okunabilirliği yüksek fontlar ve iyi bir hiyerarşi. San Francisco (Apple), Inter gibi fontlar.
+İkon Kullanımı: Sekme başlıklarında veya önemli bilgilerde anlamı pekiştiren minimal ikonlar.
+Kart Yapısı: Bilgi bloklarını (üst kısım, temel bilgiler, bakım vb.) ayrı kartlar içinde sunmak.
+Yumuşak Gölgeler ve Geçişler: Karta derinlik katmak için hafif gölgeler. Sekme geçişlerinde yumuşak animasyonlar (Framer Motion).
+Tutarlı Renk Paleti: Durum bildirimleri dışında (yeşil, sarı, kırmızı) sakin ve profesyonel renkler.
+📈 Cihazların İzlenebilirliğini Sağlamak ve Sistemi Geliştirmek İçin Neler Ekleyebiliriz?
+Mevcut yapıyı daha da güçlendirmek ve izlenebilirliği artırmak için:
+Kullanıcı Rollerine Göre Detay Seviyesi:
+QR kodu okutan kişinin rolüne göre (hemşire, teknisyen, yönetici) gösterilen bilgi detayını veya erişilebilen sekmeleri değiştirebilirsiniz. Örneğin, bir teknisyen daha detaylı teknik logları görürken, bir hemşire temel kullanım ve durum bilgisine odaklanabilir.
+"Cihazı Aldım / Bıraktım" Fonksiyonu:
+QR okutulduktan sonra, eğer kullanıcı sisteme giriş yapmışsa (veya basit bir PIN ile kimlik doğruluyorsa), "Bu Cihazı Aldım" veya "Cihazı Bıraktım (Boşta)" gibi bir butonla cihazın sorumluluğunu üzerine alabilir veya bırakabilir. Bu, Hareket Geçmişi'ne otomatik olarak kaydedilir.
+Son Görüldüğü Konum ve Kişi:
+"Cihazı Aldım" işlemiyle birlikte, mümkünse kullanıcının bulunduğu departman bilgisi (eğer sistemde kayıtlıysa veya manuel seçtiriliyorsa) veya en azından kimin aldığı bilgisi anlık olarak güncellenir.
+Periyodik Kontrol Listeleri (Dijital Check-listler):
+Bazı cihazlar için günlük/haftalık basit kontroller gerekebilir. Kullanıcılar QR okutup, basit bir dijital check-list üzerinden "Çalışıyor", "Temiz", "Eksik Parça Yok" gibi kontrolleri işaretleyebilir. Bu da izlenebilirliğe katkı sağlar.
+Arıza Bildirim Entegrasyonu:
+Cihaz detay sayfasından doğrudan, önceden doldurulmuş cihaz bilgileriyle (model, seri no vb.) bir arıza bildirim formuna yönlendirme. Bu, arıza kayıtlarının daha doğru ve hızlı girilmesini sağlar.
+Cihaz İlişkilendirme:
+Bir ana cihazla birlikte kullanılan yardımcı cihazlar veya sarf malzemeleri varsa (örn: bir ultrason cihazı ve spesifik probları), bu ilişkiler detay sayfasında gösterilebilir. "Bu Cihazla Birlikte Kullanılanlar" gibi.
+Kullanım Sıklığı ve Süresi Takibi (Gelişmiş):
+"Cihazı Aldım/Bıraktım" gibi işlemlerle cihazın ne kadar süreyle kimin tarafından kullanıldığına dair veri toplanabilir. Bu, kullanım yoğunluğu analizi ve kaynak planlaması için değerli olabilir.
+Offline Yetenekler (PWA ile):
+Eğer internet bağlantısı zayıf olabilecek alanlar varsa, PWA (Progressive Web App) teknolojisi ile temel cihaz bilgilerinin offline erişilebilir olması ve yapılan işlemlerin (örn: arıza bildirimi) internet geldiğinde senkronize edilmesi düşünülebilir.
+Fotoğraflı Durum Güncellemeleri:
+Bir arıza bildirirken veya bakım sonrası durumu raporlarken, kullanıcıların fotoğraf yükleyebilmesi (örn: kırık bir parça, tamamlanmış bir montaj).
+Uyarı ve Bildirimler:
+Bakım zamanı gelen, garantisi bitmek üzere olan veya uzun süredir kullanılmayan cihazlar için ilgili kişilere (yöneticiler, teknisyenler) otomatik e-posta/SMS veya dashboard bildirimi gönderilmesi.
+Bu eklemeler, sisteminizi sadece bir envanter takip aracından, proaktif bir cihaz yönetim ve izlenebilirlik platformuna dönüştürebilir. Önceliklendirme yaparak ve kullanıcı geri bildirimlerini dikkate alarak adım adım ilerlemek en sağlıklısı olacaktır.

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Labels</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm; /* A4 sayfasının kenar boşlukları */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .label-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-content: flex-start;
+            width: 210mm; /* A4 genişliği */
+            height: 297mm; /* A4 yüksekliği */
+            box-sizing: border-box;
+            page-break-after: always; /* Her sayfanın sonunda yeni sayfa */
+        }
+        .qr-label {
+            width: 48mm; /* Etiket genişliği (50mm - 2mm margin) */
+            height: 28mm; /* Etiket yüksekliği (30mm - 2mm margin) */
+            border: 1px solid #eee;
+            margin: 1mm; /* Etiketler arası boşluk */
+            box-sizing: border-box;
+            padding: 2mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            font-size: 8px;
+            overflow: hidden; /* İçerik taşmasını engelle */
+        }
+        .qr-code-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .institution-name {
+            font-size: 7px;
+            font-weight: bold;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+        }
+        .device-name {
+            font-size: 8px;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+        .asset-id, .department-name {
+            font-size: 7px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="label-container">
+        {% for data in qr_codes_data %}
+        <div class="qr-label">
+            <img src="data:image/svg+xml;base64,{{ data.qr_code_base64 }}" alt="QR Code" class="qr-code-img"/>
+            <div class="institution-name">{{ data.institution_name }}</div>
+            <div class="device-name">{{ data.device_name }}</div>
+            <div class="asset-id">ID: {{ data.asset_id }}</div>
+            <div class="department-name">{{ data.department }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html> 

@@ -3,6 +3,7 @@ description:
 globs: 
 alwaysApply: true
 ---
+Türkçe cevap ver.
 # 🚦 CURSOR RULES – Proje Yol Haritası ve Kurallar Kitapçığı
 
 ## 1. Proje Amacı
@@ -21,7 +22,7 @@ alwaysApply: true
 - Minimal, sade, bol boşluklu, tipografi odaklı
 - Soft geçiş animasyonları (Framer Motion)
 - Responsive ve mobile-first
-- açık tema varsayılan
+- Açık tema varsayılan
 - Büyük başlıklar, net ikonografi, yüksek kontrast
 - Dikkat dağıtmayan renkler, 1 ana accent (mavi/yeşil/teal)
 - Sidebar navigation, sticky ve daraltılabilir
